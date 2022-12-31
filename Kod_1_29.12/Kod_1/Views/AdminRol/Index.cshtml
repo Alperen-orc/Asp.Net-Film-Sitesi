@@ -1,0 +1,32 @@
+﻿@model List<AppRole>
+@inject LanguageService language
+@{
+    Layout = "_Layout";
+}
+
+
+<div class="col-md-8">
+    <h5>@language.Getkey("Roles")</h5>
+    <table class="table table-bordered">
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+
+
+                    <td>@item.Id</td>
+
+                    <td>@item.Name</td>
+                    <td>
+                        <a href="/AdminRol/UpdateRole/@item.Id" class="btn btn-warning btn-sm">@language.Getkey("Update")</a>
+                        <a href="/AdminRol/DeleteRole/@item.Id" class="btn btn-danger btn-sm">@language.Getkey("Delete")</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a href="/AdminRol/AddRole" class="btn btn-outline-primary">@language.Getkey("AddRole")</a>
+<a href="/AdminRol/UserRoleList" class="btn btn-outline-info">@language.Getkey("BackUser")</a>

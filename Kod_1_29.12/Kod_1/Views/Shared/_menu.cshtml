@@ -1,0 +1,14 @@
+﻿@model List<Genre>
+   
+
+
+<div class="list-group-dark">
+    @foreach (var genre in Model)
+    {
+
+        <a class="list-group-item list-group-item-dark  active px-3 border-0"
+       data-mdb-toggle="list" href="#" role="tab">@genre.Name</a>
+    }
+
+
+</div>
