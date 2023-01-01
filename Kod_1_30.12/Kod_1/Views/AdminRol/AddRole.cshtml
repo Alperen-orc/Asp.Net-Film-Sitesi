@@ -1,0 +1,13 @@
+﻿@model RoleViewModel
+@inject LanguageService language
+
+<h1>@language.Getkey("AddRole")</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label>@language.Getkey("RoleTitle")</label>
+        <input type="text" name="name" class="form-control" />
+    </div>
+  
+    <button class="btn btn-info">@language.Getkey("Save")</button>
+</form>
