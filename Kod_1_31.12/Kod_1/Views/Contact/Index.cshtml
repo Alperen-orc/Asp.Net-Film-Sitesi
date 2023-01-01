@@ -1,0 +1,121 @@
+﻿@model ContactViewModel
+@inject LanguageService language
+
+<!doctype html>
+<html lang="en">
+<head>
+	<title>@language.Getkey("ContactPage")</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="/contact-form-01/css/style.css">
+
+</head>
+<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">@language.Getkey("ContactForm")</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-10 col-md-12">
+					<div class="wrapper">
+						<div class="row no-gutters">
+							<div class="col-md-7 d-flex align-items-stretch">
+								<div class="contact-wrap w-100 p-md-5 p-4">
+									<div id="form-message-success" class="mb-4">
+										
+									</div>
+									<form action="/Contact/CreateContact" method="post" class="form-control">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<input type="text" class="form-control" name="Name" id="Name" placeholder="@language.Getkey("Name")">
+													<span asp-validation-for="Name" class="text-danger"></span>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<input type="email" class="form-control" name="Email" id="Email" placeholder="Email">
+													<span asp-validation-for="Email" class="text-danger"></span>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="text" class="form-control" name="Subject" id="Subject" placeholder="@language.Getkey("Subject")">
+													<span asp-validation-for="Subject" class="text-danger"></span>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<textarea name="Message" class="form-control" id="Message" cols="30" rows="7" placeholder="@language.Getkey("Message")"></textarea>
+													<span asp-validation-for="Message" class="text-danger"></span>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="submit" value="@language.Getkey("Submit")" class="btn btn-primary">
+													<div class="submitting"></div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-5 d-flex align-items-stretch">
+								<div class="info-wrap bg-primary w-100 p-lg-5 p-4">
+									<h3 class="mb-4 mt-md-4">@language.Getkey("ContactUs")</h3>
+									<div class="dbox w-100 d-flex align-items-start">
+										<div class="icon d-flex align-items-center justify-content-center">
+											<span class="fa fa-map-marker"></span>
+										</div>
+										<div class="text pl-3">
+											<p><span>Address:</span> Sakarya Üniversitesi Bilgisayar Mühendisliği</p>
+										</div>
+									</div>
+									<div class="dbox w-100 d-flex align-items-center">
+										<div class="icon d-flex align-items-center justify-content-center">
+											<span class="fa fa-phone"></span>
+										</div>
+										<div class="text pl-3">
+											<p><span>Phone:</span> <a href="tel://1234567920">(505) 102 4561</a></p>
+										</div>
+									</div>
+									<div class="dbox w-100 d-flex align-items-center">
+										<div class="icon d-flex align-items-center justify-content-center">
+											<span class="fa fa-paper-plane"></span>
+										</div>
+										<div class="text pl-3">
+											<p><span>Email:</span> <a href="mailto:info@yoursite.com">alperen.oruc@ogr.sakarya.edu.tr</a></p>
+										</div>
+									</div>
+									<div class="dbox w-100 d-flex align-items-center">
+										<div class="icon d-flex align-items-center justify-content-center">
+											<span class="fa fa-globe"></span>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="/contact-form-01/js/jquery.min.js"></script>
+	<script src="/contact-form-01/js/popper.js"></script>
+	<script src="/contact-form-01/js/bootstrap.min.js"></script>
+	<script src="/contact-form-01/js/jquery.validate.min.js"></script>
+	<script src="/contact-form-01/js/main.js"></script>
+
+</body>
+</html>
+

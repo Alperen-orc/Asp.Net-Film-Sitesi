@@ -1,0 +1,70 @@
+﻿@inject LanguageService language
+
+<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-Toggler">
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-Toggler">
+            <a class="navbar-brand" href="#">
+                <img src="~/img/leonthe.jpg" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+            </a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item ">
+                    <a href="/movies/list" class="nav-link">Movies</a>
+                </li>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="nav-item ">
+                        <a href="/admin/moviecreate" class="nav-link">@language.Getkey("Create")</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="/admin/movielist" class="nav-link">@language.Getkey("Movies")</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="/admin/genrelist" class="nav-link">@language.Getkey("Genres")</a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a href="/AdminRol/Index" class="nav-link">@language.Getkey("Roles")</a>
+                    </li>
+                }
+
+                <li class="nav-item ">
+                    <a href="/ApiMovie/Index" class="nav-link">Imdb</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="/Contact/CreateContact" class="nav-link">@language.Getkey("Contact")</a>
+                </li>
+
+
+            </ul>
+            <div class="nav-wrapper">
+                <div class="sl-nav">
+                    <ul>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">@language.Getkey("Language")</a>
+                            <ul class="dropdown-menu">
+                                <li><a asp-controller="Movies" asp-action="ChangeLanguage" asp-route-culture="en-US" class="nav-link"><i class="flag-icon flag-icon-gb"></i> English</a></li>
+                                <li><a asp-controller="Movies" asp-action="ChangeLanguage" asp-route-culture="tr-TR" class="nav-link"><i class="flag-icon flag-icon-tr"></i> Türkçe</a></li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <form action="/movies/list" method="get" class="d-flex">
+                <input type="text" name="q" placeholder="@language.Getkey("Search")" class="form-control me-2" />
+                <button type="submit" class="btn btn-outline-secondary mr-0">@language.Getkey("Find")</button>
+            </form>
+
+        </div>
+
+    </div>
+</nav>
